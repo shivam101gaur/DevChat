@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "dev-chat",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

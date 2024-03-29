@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "devchat-ab1ee": {
+      "hosting": {
+        "dev-chat": [
+          "dev-o-chat"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "devchat-ab1ee"
+  }
+}

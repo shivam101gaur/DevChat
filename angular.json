@@ -3,11 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DevChat": {
+    "dev-chat": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "skipTests": true,
+          "standalone": false
         }
       },
       "root": "",
@@ -39,13 +42,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "150mb",
+                  "maximumError": "250mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "150mb",
+                  "maximumError": "250mb"
                 }
               ],
               "outputHashing": "all"
@@ -62,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "DevChat:build:production"
+              "buildTarget": "dev-chat:build:production"
             },
             "development": {
-              "buildTarget": "DevChat:build:development"
+              "buildTarget": "dev-chat:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "DevChat:build"
+            "buildTarget": "dev-chat:build"
           }
         },
         "test": {
@@ -94,6 +97,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "dev-chat:build:production",
+              "serveTarget": "dev-chat:serve:production"
+            },
+            "development": {
+              "buildTarget": "dev-chat:build:development",
+              "serveTarget": "dev-chat:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
