@@ -18,3 +18,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEVCHAT_AB1EE }}'
           channelId: live
           projectId: devchat-ab1ee
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks  
