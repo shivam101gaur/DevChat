@@ -1,7 +1,22 @@
 <p>chat works!</p>xcx
-
+<hr>
+<div *ngFor="let robot of robots">
+    <h3> {{ robot.name }} </h3>
+    <p> color: {{ robot.color }} </p>
+    <p> age: {{ robot.age }} </p>
+</div> 
+<hr>
+<button 
+style="background-color: green;padding: 5px;"
+(click)="create()">
+    Create Robot
+</button>
 <button 
 style="background-color: red;padding: 5px;"
 (click)="logout()">
     Logout
+</button>
+
+<button (click)="readRobots()">
+    read
 </button>
